@@ -1,26 +1,23 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% load static %}
-    <img src="{% static 'portfolio/name.png' %}">
-    <h1>Welcome to this home page</h1>
-    <br>
-    {% for project in projects %}
-    {{project.title}}
-    {{project.description}}
-    {{project.image}}
-    <br>
-    <br>
-    <img id="image" src = "{{project.image.url}}" width="200px" height="150px">    
-    {% if project.url %}
-    <br>
-    
-    <a href="/blog">LINK</a>
-    {% endif %}
-    {% endfor %}
-</body>
-</html>
+{% extends 'portfolio/base.html' %}
+{% block content %}
+{% load static %}
+<h1>Welcome to this home page</h1>
+<a href="{%static 'portfolio/resume.pdf'%}">Resume</a>
+<br>
+<a href="{% url 'blog:all_blogs' %}">All Blogs</a>
+<br>
+<img src="{% static 'portfolio/name.png' %}">
+
+<br>
+{% for project in projects %}
+{{project.title}}
+{{project.description}}
+{{project.image}}
+<br>
+<br>
+<img id="image" src="{{project.image.url}}" width="200px" height="150px">
+{% if project.url %}
+<a href="/blog">LINK</a>
+{% endif %}
+{% endfor %}
+{% endblock %}
