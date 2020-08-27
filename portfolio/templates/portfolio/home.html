@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to this home page</h1>
+    <br>
+    {% for project in projects %}
+    {{project.title}}
+    {{project.description}}
+    {{project.image}}
+    <br>
+    <br>
+    <img id="image" src = "{{project.image.url}}" width="200px" height="150px">    
+    {% if project.url %}
+    <br>
+    
+    <a href="{{project.url}}">LINK</a>
+    {% endif %}
+    {% endfor %}
+</body>
+</html>
