@@ -5,6 +5,8 @@
     <title>Document</title>
 </head>
 <body>
+    {% load static %}
+    <img src="{% static 'portfolio/name.png' %}">
     <h1>Welcome to this home page</h1>
     <br>
     {% for project in projects %}
@@ -17,7 +19,7 @@
     {% if project.url %}
     <br>
     
-    <a href="{{project.url}}">LINK</a>
+    <a href="/blog">LINK</a>
     {% endif %}
     {% endfor %}
 </body>
